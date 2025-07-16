@@ -6,6 +6,7 @@ import { buttonVariants } from '@/components/ui/button'
 import { SITE } from '@/consts'
 import Layout from '@/layouts/Layout.astro'
 import { getRecentPosts } from '@/lib/data-utils'
+import { Icon } from 'astro-icon/components'
 
 const blog = await getRecentPosts(SITE.featuredPostCount)
 ---
@@ -14,55 +15,58 @@ const blog = await getRecentPosts(SITE.featuredPostCount)
   <PageHead slot="head" title="Home" />
   <section>
     <div class="rounded-lg border">
-      <div class="flex flex-col space-y-1.5 p-6">
-        <h3 class="text-3xl leading-none font-medium">er·u·dite</h3>
-        <p class="text-muted-foreground text-sm">
-          /ˈer(y)əˌdīt/ &bull; <span class="font-medium">adjective</span>
-        </p>
+      <div class="flex items-start p-6 pb-0 relative">
+        <div class="flex flex-col space-y-1.5">
+          <h3 class="text-3xl leading-none font-medium mb-4">Carter Opperman</h3>
+          <div class="flex items-center space-x-1.5">
+            <Icon name="lucide:map-pin" class="size-4"/>
+            <span class="text-muted-foreground text-sm font-medium">Charlottesville, VA</span>
+            <Icon name="lucide:map-pin-house" class="size-4 ml-2"/>
+            <span class="text-muted-foreground text-sm font-medium">Sydney, Australia</span>
+          </div>
+          <div class="flex items-center space-x-1.5">
+            <Icon name="lucide:mail" class="size-4"/>
+            <Link href="mailto:oppermancarter@gmail.com" class="text-muted-foreground text-sm font-medium" underline>Personal</Link>
+            <Icon name="lucide:mail" class="size-4 ml-2"/>
+            <Link href="mailto:asq2am@virginia.edu" class="text-muted-foreground text-sm font-medium" underline>Academic</Link>
+          </div>
+          <div class="flex items-center space-x-1.5">
+            <Icon name="lucide:github" class="size-4"/>
+            <Link href="https://github.com/caeyo" class="text-muted-foreground text-sm font-medium" external underline>GitHub</Link>
+            <Icon name="lucide:linkedin" class="size-4 ml-2"/>
+            <Link href="https://www.linkedin.com/in/carter-opperman/" class="text-muted-foreground text-sm font-medium" external underline>LinkedIn</Link>
+          </div>
+        </div>
+        <img
+          src="/headshot.jpg"
+          alt="Carter Opperman"
+          class="w-30 h-30 rounded-full object-cover border ml-auto"
+        />
       </div>
       <div class="p-6 pt-0">
-        <p class="text-muted-foreground mb-2 text-sm">
-          astro-erudite is an opinionated, unstyled static blogging template
-          built with <Link
-            href="https://astro.build"
-            class="text-foreground"
-            external
-            underline>Astro</Link
-          >, <Link
-            href="https://tailwindcss.com"
-            class="text-foreground"
-            external
-            underline>Tailwind</Link
-          >, and <Link
-            href="https://ui.shadcn.com"
-            class="text-foreground"
-            external
-            underline>shadcn/ui</Link
-          >. Extraordinarily loosely based on the <Link
-            href="https://astro-micro.vercel.app/"
-            class="text-foreground"
-            external
-            underline>Astro Micro</Link
-          > theme.
+        <p class="text-muted-foreground mt-6 mb-2 text-sm">
+          I am a fourth-year student at the University of Virginia, completing a B.A. in Computer Science and Economics in May 2026.
         </p>
-        <p class="text-muted-foreground text-sm">
-          To use this template, check out the <Link
-            href="https://github.com/jktrn/astro-erudite"
-            class="text-foreground"
-            underline
-            external>GitHub</Link
-          > repository. To learn more about why this template exists, read this blog
-          post: <Link
-            href="/blog/the-state-of-static-blogs"
-            class="text-foreground"
-            underline>The State of Static Blogs in 2024</Link
-          >.
+        <p class="text-muted-foreground mb-2 text-sm">
+          My career interests lie in software analysis and verification, optimization, and compiler design, particularly for machine learning applications.
+          I explore these interests through <Link href="/research" class="text-foreground" underline>research</Link> in the 
+          <Link href="https://less-lab-uva.github.io/" class="text-foreground" external underline>UVA LESS Lab</Link> under 
+          <Link href="https://wenxiwang.github.io/group.html" class="text-foreground" external underline>Prof. Wenxi Wang</Link>, and my
+          <Link href="/projects" class="text-foreground" underline>projects</Link>. 
+        </p>
+        <p class="text-muted-foreground mb-2 text-sm">
+          My personal interests are a little more lively: I enjoy basketball, running, the beach and the surf, short fiction, sound design, skiing, music, and cooking.
+        </p>
+        <p class="text-muted-foreground mb-2 text-sm">
+          I am always searching for opportunities in novel domains that challenge me to break apart complex, dynamic problems.
+          I am also always searching for a good chat and a chance to learn more from others.
+          Please feel free to reach out!
         </p>
       </div>
     </div>
   </section>
   <section class="flex flex-col gap-y-4">
-    <h2 class="text-2xl font-medium">Latest posts</h2>
+    <h2 class="text-2xl font-medium">Recent News</h2>
     <ul class="flex flex-col gap-y-4">
       {
         blog.map((post) => (
@@ -74,10 +78,10 @@ const blog = await getRecentPosts(SITE.featuredPostCount)
     </ul>
     <div class="flex justify-center">
       <Link
-        href="/blog"
+        href="/news"
         class={buttonVariants({ variant: 'ghost' }) + ' group'}
       >
-        See all posts <span
+        See all news <span
           class="ml-1.5 transition-transform group-hover:translate-x-1"
           >&rarr;</span
         >
