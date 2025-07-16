@@ -1,13 +1,16 @@
+@import '@fontsource/inter';
+@import '@fontsource-variable/inter';
+@import '@fontsource/jetbrains-mono';
 @import 'tailwindcss';
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 @theme inline {
   --font-sans:
-    Geist, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'InterVariable', 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   --font-mono:
-    Geist Mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     'Liberation Mono', 'Courier New', monospace;
 
   --color-background: var(--background);
@@ -35,52 +38,36 @@
   --color-ring: var(--ring);
 }
 
-@font-face {
-  font-family: 'Geist';
-  src: url('/fonts/GeistVF.woff2') format('woff2-variations');
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Geist Mono';
-  src: url('/fonts/GeistMonoVF.woff2') format('woff2-variations');
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-}
-
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  --background: oklch(0.96 0.015 80);
+  --foreground: oklch(27.557% 0.01564 209.991);
+  --primary: oklch(0.26 0.02 205); 
+  --primary-foreground: oklch(0.93 0.055 65);
+  --secondary: oklch(88.737% 0.02726 85.654);
+  --secondary-foreground: oklch(27.641% 0.01438 211.267);
+  --muted: oklch(0.98 0.015 85);
+  --muted-foreground: oklch(36.519% 0.00444 220.023);
+  --accent: oklch(74.484% 0.08626 258.537);
+  --accent-foreground: oklch(0.26 0.02 205);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --border: oklch(87.302% 0.0001 271.152);
+  --ring: oklch(0.73 0.055 60);
 }
 
 [data-theme='dark'] {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
+  --background: oklch(26.808% 0.04331 275.567);
+  --foreground: oklch(0.95 0.03 92);
+  --primary: oklch(75.127% 0.06058 69.186);
+  --primary-foreground: oklch(0.16 0.03 80);
+  --secondary: oklch(0.34 0.05 265);
+  --secondary-foreground: oklch(0.95 0.04 92);
+  --muted: oklch(0.26 0.02 265);
+  --muted-foreground: oklch(69.794% 0.02149 84.575);      
+  --accent: oklch(74.484% 0.08626 258.537);
+  --accent-foreground: oklch(0.98 0.03 92);
   --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --ring: oklch(0.556 0 0);
+  --border: oklch(59.668% 0.05371 265.718 / 0.3);
+  --ring: oklch(77.605% 0.04159 69.549);
 }
 
 @layer base {
