@@ -17,13 +17,7 @@ const blog = await getRecentPosts(SITE.featuredPostCount)
     <div class="rounded-lg border">
       <div class="flex items-start p-6 pb-0 relative">
         <div class="flex flex-col space-y-1.5">
-          <h3 class="text-3xl leading-none font-medium mb-4">Carter Opperman</h3>
-          <div class="flex items-center space-x-1.5">
-            <Icon name="lucide:map-pin" class="size-4"/>
-            <span class="text-muted-foreground text-sm font-medium">Charlottesville, VA</span>
-            <Icon name="lucide:map-pin-house" class="size-4 ml-2"/>
-            <span class="text-muted-foreground text-sm font-medium">Sydney, Australia</span>
-          </div>
+          <h3 class="text-2xl min-[400px]:text-3xl leading-none font-medium mb-4">Carter Opperman</h3>
           <div class="flex items-center space-x-1.5">
             <Icon name="lucide:mail" class="size-4"/>
             <Link href="mailto:oppermancarter@gmail.com" class="text-muted-foreground text-sm font-medium" underline>Personal</Link>
@@ -36,11 +30,17 @@ const blog = await getRecentPosts(SITE.featuredPostCount)
             <Icon name="lucide:linkedin" class="size-4 ml-2"/>
             <Link href="https://www.linkedin.com/in/carter-opperman/" class="text-muted-foreground text-sm font-medium" external underline>LinkedIn</Link>
           </div>
+          <div class="flex items-center space-x-1.5" >
+            <Icon name="lucide:map-pin" class="size-4"/>
+            <span class="text-muted-foreground text-sm font-medium">Charlottesville, VA</span>
+            <Icon name="lucide:map-pin-house" class="size-4 ml-2"/>
+            <span class="text-muted-foreground text-sm font-medium">Sydney, Australia</span>
+          </div>
         </div>
         <img
           src="/headshot.jpg"
           alt="Carter Opperman"
-          class="w-30 h-30 rounded-full object-cover border ml-auto"
+          class="w-16 h-16 min-[425px]:w-20 min-[425px]:h-20 min-[500px]:w-30 min-[500px]:h-30 rounded-full object-cover border absolute right-6 top-6"
         />
       </div>
       <div class="p-6 pt-0">
