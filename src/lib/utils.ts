@@ -13,6 +13,14 @@ export function formatDate(date: Date) {
   }).format(date)
 }
 
+export function formatDateMonthYear(date: Date) {
+  date.setMonth(date.getMonth() + 1);
+  return Intl.DateTimeFormat('en-US', {
+    year: 'numeric',
+    month: 'long',
+  }).format(date);
+}
+
 export function calculateWordCountFromHtml(
   html: string | null | undefined,
 ): number {

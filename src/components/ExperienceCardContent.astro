@@ -1,0 +1,47 @@
+---
+import { Badge } from '@/components/ui/badge'
+import { formatDateMonthYear } from '@/lib/utils'
+import { Icon } from 'astro-icon/components'
+
+const { experience } = Astro.props
+---
+
+<div class="grow">
+    <h3 class="mb-1 text-lg font-medium">
+    {experience.data.position}
+    </h3>
+    <h2 class="mb-1 text-md font-medium italic">
+    {experience.data.company}
+    </h2>
+    <ul class="text-muted-foreground mb-2 text-sm list-disc pl-5">
+      {experience.data.description.map((line: string) => (
+        <li>{line}</li>
+      ))}
+    </ul>
+    <p class="text-muted-foreground/70 mb-2 flex items-center gap-x-1.5 text-sm">
+    <span class="flex items-center gap-x-1.5">
+        <Icon name="lucide:map-pin" class="size-3" />
+        <span>{experience.data.location}</span>
+    </span>
+    </p>
+    <p class="text-muted-foreground/70 flex items-center gap-x-1.5 text-sm">
+    <span class="flex items-center gap-x-1.5">
+        <Icon name="lucide:calendar" class="size-3" />
+        <span>
+        {formatDateMonthYear(experience.data.startDate)}
+        {experience.data.endDate
+            ? ` → ${formatDateMonthYear(experience.data.endDate)}`
+            : ' → Present'}
+        </span>
+    </span>
+    </p>
+    {
+    experience.data.tags && (
+        <div class="flex mt-2 flex-wrap gap-2">
+        {experience.data.tags.map((tag: string) => (
+            <Badge variant="secondary">{tag}</Badge>
+        ))}
+        </div>
+    )
+    }
+</div>

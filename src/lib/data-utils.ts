@@ -20,9 +20,26 @@ export async function getAllPostsAndSubposts(): Promise<
 export async function getAllProjects(): Promise<CollectionEntry<'projects'>[]> {
   const projects = await getCollection('projects')
   return projects.sort((a, b) => {
-    const dateA = a.data.startDate?.getTime() || 0
-    const dateB = b.data.startDate?.getTime() || 0
+    const dateA = a.data.endDate?.getTime() || 0
+    const dateB = b.data.endDate?.getTime() || 0
     return dateB - dateA
+  })
+}
+
+export async function getAllExperiences(): Promise<CollectionEntry<'experience'>[]> {
+  const experience = await getCollection('experience')
+  return experience.sort((a, b) => {
+    const dateA = a.data.endDate?.getTime() || Number.MAX_SAFE_INTEGER
+    const dateB = b.data.endDate?.getTime() || Number.MAX_SAFE_INTEGER
+    if (dateA - dateB != 0) {
+      return dateB - dateA
+    }
+    const startA = a.data.startDate?.getTime() || Number.MAX_SAFE_INTEGER
+    const startB = b.data.startDate?.getTime() || Number.MAX_SAFE_INTEGER
+    if (startA - startB != 0) {
+      return startB - startA;
+    }
+    return a.data.position.localeCompare(b.data.company);
   })
 }
 
