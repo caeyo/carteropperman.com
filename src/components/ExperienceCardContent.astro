@@ -13,7 +13,7 @@ const { experience } = Astro.props
     <h2 class="mb-1 text-md font-medium italic">
     {experience.data.company}
     </h2>
-    <ul class="text-muted-foreground mb-2 text-sm list-disc pl-5">
+    <ul class="text-muted-foreground mb-2 text-sm list-disc pl-4">
       {experience.data.description.map((line: string) => (
         <li>{line}</li>
       ))}

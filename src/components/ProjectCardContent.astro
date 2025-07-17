@@ -29,7 +29,7 @@ const { project } = Astro.props
     </p>
     {
     project.data.startDate && (
-        <p class="text-muted-foreground/70 mb-2 flex items-center gap-x-1.5 text-xs">
+        <p class="text-muted-foreground/70 flex items-center gap-x-1.5 text-xs">
         <span class="flex items-center gap-x-1.5">
             <Icon name="lucide:calendar" class="size-3" />
             <span>
@@ -44,7 +44,7 @@ const { project } = Astro.props
     }
     {
     project.data.tags && (
-        <div class="flex flex-wrap gap-2">
+        <div class="flex mt-2 flex-wrap gap-2">
         {project.data.tags.map((tag: string) => (
             <Badge variant="secondary">{tag}</Badge>
         ))}
