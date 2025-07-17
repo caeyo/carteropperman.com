@@ -1,6 +1,6 @@
 ---
 import { Badge } from '@/components/ui/badge'
-import { formatDate } from '@/lib/utils'
+import { formatDateMonthYear } from '@/lib/utils'
 import { Icon } from 'astro-icon/components'
 import { Image } from 'astro:assets'
 
@@ -24,18 +24,20 @@ const { project } = Astro.props
     <h3 class="mb-1 text-lg font-medium">
     {project.data.name}
     </h3>
-    <p class="text-muted-foreground mb-2 text-sm">
-    {project.data.description}
-    </p>
+    <ul class="text-muted-foreground mb-2 text-sm list-disc pl-4">
+      {project.data.description.map((line: string) => (
+        <li>{line}</li>
+      ))}
+    </ul>
     {
     project.data.startDate && (
-        <p class="text-muted-foreground/70 flex items-center gap-x-1.5 text-xs">
+        <p class="text-muted-foreground/70 flex items-center gap-x-1.5 text-sm">
         <span class="flex items-center gap-x-1.5">
             <Icon name="lucide:calendar" class="size-3" />
             <span>
-            {formatDate(project.data.startDate)}
+            {formatDateMonthYear(project.data.startDate)}
             {project.data.endDate
-                ? ` → ${formatDate(project.data.endDate)}`
+                ? ` → ${formatDateMonthYear(project.data.endDate)}`
                 : ' → Present'}
             </span>
         </span>
