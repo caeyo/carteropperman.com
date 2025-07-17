@@ -1,5 +1,5 @@
 ---
-import BlogCard from '@/components/BlogCard.astro'
+import WritingsCard from '@/components/WritingsCard.astro'
 import Breadcrumbs from '@/components/Breadcrumbs.astro'
 import PageHead from '@/components/PageHead.astro'
 import Layout from '@/layouts/Layout.astro'
@@ -44,7 +44,7 @@ const { tag, posts } = Astro.props
     {
       posts.map((post) => (
         <li>
-          <BlogCard entry={post} />
+          <WritingsCard entry={post} />
         </li>
       ))
     }

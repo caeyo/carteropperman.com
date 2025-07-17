@@ -1,5 +1,5 @@
 ---
-import BlogCard from '@/components/BlogCard.astro'
+import WritingsCard from '@/components/WritingsCard.astro'
 import Link from '@/components/Link.astro'
 import PageHead from '@/components/PageHead.astro'
 import { buttonVariants } from '@/components/ui/button'
@@ -8,7 +8,7 @@ import Layout from '@/layouts/Layout.astro'
 import { getRecentPosts } from '@/lib/data-utils'
 import { Icon } from 'astro-icon/components'
 
-const blog = await getRecentPosts(SITE.featuredPostCount)
+const writings = await getRecentPosts(SITE.featuredPostCount)
 ---
 
 <Layout class="max-w-3xl">
@@ -69,9 +69,9 @@ const blog = await getRecentPosts(SITE.featuredPostCount)
     <h2 class="text-2xl font-medium">Recent News</h2>
     <ul class="flex flex-col gap-y-4">
       {
-        blog.map((post) => (
+        writings.map((post) => (
           <li>
-            <BlogCard entry={post} />
+            <WritingsCard entry={post} />
           </li>
         ))
       }
