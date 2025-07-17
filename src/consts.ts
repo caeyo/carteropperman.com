@@ -27,6 +27,7 @@ export const NAV_LINKS: SocialLink[] = [
   {
     href: '/resume.pdf',
     label: 'resume',
+    external: true,
   },
   {
     href: '/news',

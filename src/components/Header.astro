@@ -20,6 +20,7 @@ import { NAV_LINKS, SITE } from '@/consts'
           NAV_LINKS.map((item) => (
             <Link
               href={item.href}
+              {...(item.external ? { external: true } : {})}
               class="text-foreground/60 hover:text-foreground/80 capitalize transition-colors"
             >
               {item.label}
