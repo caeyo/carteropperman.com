@@ -22,9 +22,9 @@ const projects = defineCollection({
     z.object({
       name: z.string(),
       description: z.string(),
-      tags: z.array(z.string()),
+      tags: z.array(z.string()).optional(),
       image: image().optional(),
-      link: z.string().url(),
+      link: z.string().url().optional(),
       startDate: z.coerce.date().optional(),
       endDate: z.coerce.date().optional(),
     }),
