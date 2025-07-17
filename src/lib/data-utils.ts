@@ -51,6 +51,18 @@ export async function getAllExperiences(): Promise<CollectionEntry<'experience'>
   })
 }
 
+export async function getAllPublications(): Promise<CollectionEntry<'publications'>[]> {
+  const publications = await getCollection('publications')
+  return publications.sort((a, b) => {
+    const dateA = a.data.date?.getTime() || Number.MAX_SAFE_INTEGER
+    const dateB = b.data.date?.getTime() || Number.MAX_SAFE_INTEGER
+    if (dateA - dateB != 0) {
+      return dateB - dateA
+    }
+    return a.data.title.localeCompare(b.data.title);
+  })
+}
+
 export async function getAllTags(): Promise<Map<string, number>> {
   const posts = await getAllPosts()
   return posts.reduce((acc, post) => {

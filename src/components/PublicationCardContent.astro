@@ -1,0 +1,26 @@
+---
+import { formatDateMonthYear } from '@/lib/utils'
+import { Icon } from 'astro-icon/components'
+
+const { publication } = Astro.props
+---
+
+<div class="grow">
+    <h3 class="mb-1 text-lg font-medium">
+    {publication.data.title}
+    </h3>
+    <h2 class="mb-1 text-md font-medium" set:html={
+        publication.data.authors.map((author: string) => 
+            author === "Carter Opperman" ? `<strong>${author}</strong>` : author
+        ).join(', ')
+    }></h2>
+    <p class="text-muted-foreground/70 flex items-center gap-x-1.5 text-sm">
+    <span class="flex items-center gap-x-1.5">
+        <Icon name="lucide:book-open-text" class="size-4" />
+        <span>
+            {publication.data.location} ({formatDateMonthYear(publication.data.date)})
+        </span>
+    </span>
+    </p>
+
+</div>

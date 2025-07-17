@@ -1,11 +1,11 @@
 ---
 import Breadcrumbs from '@/components/Breadcrumbs.astro'
 import PageHead from '@/components/PageHead.astro'
-import ProjectCard from '@/components/ProjectCard.astro'
+import PublicationCard from '@/components/PublicationCard.astro'
 import Layout from '@/layouts/Layout.astro'
-import { getAllProjects } from '@/lib/data-utils'
+import { getAllPublications } from '@/lib/data-utils'
 
-const projects = await getAllProjects()
+const publications = await getAllPublications()
 ---
 
 <Layout class="max-w-3xl">
@@ -14,14 +14,25 @@ const projects = await getAllProjects()
 
   <section>
     <div class="min-w-full">
-      <h2 class="mb-4 text-2xl font-medium">Positions</h2>
+      <h2 class="mb-4 text-2xl font-medium">Research</h2>
       <div class="prose mb-8">
-        <p class="mt-0">sample text</p>
+        <p class="mt-0">
+          My interests...
+        </p>
+        <p class="mt-0">
+          My current work...
+        </p>
       </div>
 
       <h2 class="mb-4 text-2xl font-medium">Publications</h2>
       <div class="flex flex-col gap-4">
-        {projects.map((project) => <ProjectCard project={project} />)}
+        { (publications.length > 0) ? (
+          publications.map((publication) => <PublicationCard publication={publication} />) 
+        ) : (
+          <div class="prose mb-8">
+            <p class="mt-0">Coming soon...</p>
+          </div>
+        ) }
       </div>
     </div>
   </section>

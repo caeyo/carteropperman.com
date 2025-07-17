@@ -13,20 +13,20 @@ const { experience } = Astro.props
     <h2 class="mb-1 text-md font-medium italic">
     {experience.data.company}
     </h2>
-    <ul class="text-muted-foreground mb-2 text-sm list-disc pl-4">
+    <ul class="text-muted-foreground mb-2 text-sm list-disc pl-4.5">
       {experience.data.description.map((line: string) => (
         <li>{line}</li>
       ))}
     </ul>
     <p class="text-muted-foreground/70 mb-2 flex items-center gap-x-1.5 text-sm">
     <span class="flex items-center gap-x-1.5">
-        <Icon name="lucide:map-pin" class="size-3" />
+        <Icon name="lucide:map-pin" class="size-4" />
         <span>{experience.data.location}</span>
     </span>
     </p>
     <p class="text-muted-foreground/70 flex items-center gap-x-1.5 text-sm">
     <span class="flex items-center gap-x-1.5">
-        <Icon name="lucide:calendar" class="size-3" />
+        <Icon name="lucide:calendar" class="size-4" />
         <span>
         {formatDateMonthYear(experience.data.startDate)}
         {experience.data.endDate
