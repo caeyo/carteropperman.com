@@ -1,0 +1,31 @@
+---
+import { formatDate } from '@/lib/utils'
+import { Icon } from 'astro-icon/components'
+import type { CollectionEntry } from 'astro:content'
+
+interface Props {
+  news: CollectionEntry<'news'>
+}
+
+const { news } = Astro.props
+---
+
+<div class="rounded-xl border p-4">
+    <div class="flex flex-col gap-4 sm:flex-row">
+        <div class="grow">
+            <p class="mb-2 text-md font-medium">
+                {news.data.news}
+            </p>
+            <p class="text-muted-foreground/70 flex items-center gap-x-1.5 text-sm">
+            <span class="flex items-center gap-x-1.5">
+                <Icon name="lucide:calendar" class="size-4" />
+                <span>
+                    {formatDate(news.data.date)}
+                </span>
+            </span>
+            </p>
+        </div>
+    </div>
+</div>
+
+

@@ -6,6 +6,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function formatDate(date: Date) {
+  date.setDate(date.getDate() + 1);
   return Intl.DateTimeFormat('en-US', {
     year: 'numeric',
     month: 'long',

@@ -42,8 +42,8 @@ export async function getAllExperiences(): Promise<CollectionEntry<'experience'>
     if (dateA - dateB != 0) {
       return dateB - dateA
     }
-    const startA = a.data.startDate?.getTime() || Number.MAX_SAFE_INTEGER
-    const startB = b.data.startDate?.getTime() || Number.MAX_SAFE_INTEGER
+    const startA = a.data.startDate.getTime()
+    const startB = b.data.startDate.getTime()
     if (startA - startB != 0) {
       return startB - startA;
     }
@@ -54,12 +54,21 @@ export async function getAllExperiences(): Promise<CollectionEntry<'experience'>
 export async function getAllPublications(): Promise<CollectionEntry<'publications'>[]> {
   const publications = await getCollection('publications')
   return publications.sort((a, b) => {
-    const dateA = a.data.date?.getTime() || Number.MAX_SAFE_INTEGER
-    const dateB = b.data.date?.getTime() || Number.MAX_SAFE_INTEGER
+    const dateA = a.data.date.getTime()
+    const dateB = b.data.date.getTime()
     if (dateA - dateB != 0) {
       return dateB - dateA
     }
     return a.data.title.localeCompare(b.data.title);
+  })
+}
+
+export async function getAllNews(): Promise<CollectionEntry<'news'>[]> {
+  const news = await getCollection('news')
+  return news.sort((a, b) => {
+    const dateA = a.data.date.getTime()
+    const dateB = b.data.date.getTime()
+    return dateB - dateA
   })
 }
 
@@ -151,6 +160,13 @@ export async function getRecentPosts(
 ): Promise<CollectionEntry<'writings'>[]> {
   const posts = await getAllPosts()
   return posts.slice(0, count)
+}
+
+export async function getRecentNews(
+  count: number,
+): Promise<CollectionEntry<'news'>[]> {
+  const news = await getAllNews()
+  return news.slice(0, count)
 }
 
 export async function getSortedTags(): Promise<
