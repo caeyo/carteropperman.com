@@ -49,7 +49,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
     label: 'LinkedIn',
   },
   {
-    href: 'mailto:oppermancarter@gmail.com',
+    href: 'mailto:carter@carteropperman.com',
     label: 'Email',
   },
 ]
