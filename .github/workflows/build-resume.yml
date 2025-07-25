@@ -1,0 +1,32 @@
+name: Build Resume PDF from Resume Repo
+
+on:
+  repository_dispatch:
+    types: [resume-updated]
+  workflow_dispatch:
+
+jobs:
+  build-resume-pdf:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout personal-site repo
+        uses: actions/checkout@v4
+
+      - name: Checkout resume repo
+        uses: actions/checkout@v4
+        with:
+          repository: caeyo/resume
+          path: resume
+          token: ${{ secrets.RESUME_REPO_PAT }}
+
+      - name: Compile LaTeX to PDF (XeLaTeX)
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: resume.tex
+          working_directory: resume
+          latexmk_use_xelatex: true
+
+      - name: Move generated PDF to public folder
+        run: |
+          mkdir -p ./public
+          mv ./resume/resume.pdf ./public/resume.pdf
