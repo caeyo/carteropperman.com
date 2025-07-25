@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: Checkout personal-site repo
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PERSONAL_SITE_PAT }}
 
       - name: Checkout resume repo
         uses: actions/checkout@v4
