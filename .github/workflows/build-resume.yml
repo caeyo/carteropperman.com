@@ -29,4 +29,13 @@ jobs:
       - name: Move generated PDF to public folder
         run: |
           mkdir -p ./public
-          mv ./resume/resume.pdf ./public/resume.pdf
+          cp ./resume/resume.pdf ./public/resume.pdf
+      
+      - name: Commit and push resume.pdf to trigger Netlify
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add public/resume.pdf
+          # Prevent failure if there's nothing to commit:
+          git diff --cached --quiet || git commit -m "chore: update resume.pdf from fresh build"
+          git push
