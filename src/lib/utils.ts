@@ -6,8 +6,8 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function formatDate(date: Date) {
-  date.setDate(date.getDate() + 1);
   return Intl.DateTimeFormat('en-US', {
+    timeZone: 'UTC',
     year: 'numeric',
     month: 'long',
     day: 'numeric',
@@ -15,8 +15,8 @@ export function formatDate(date: Date) {
 }
 
 export function formatDateMonthYear(date: Date) {
-  date.setMonth(date.getMonth() + 1);
   return Intl.DateTimeFormat('en-US', {
+    timeZone: 'UTC',
     year: 'numeric',
     month: 'long',
   }).format(date);
