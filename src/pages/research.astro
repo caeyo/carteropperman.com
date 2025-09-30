@@ -1,5 +1,6 @@
 ---
 import Breadcrumbs from '@/components/Breadcrumbs.astro'
+import Link from '@/components/Link.astro'
 import PageHead from '@/components/PageHead.astro'
 import PublicationCard from '@/components/PublicationCard.astro'
 import Layout from '@/layouts/Layout.astro'
@@ -17,13 +18,24 @@ const publications = await getAllPublications()
       <h2 class="mb-4 text-2xl font-medium">Research</h2>
       <div class="prose mb-8">
         <p class="mt-0">
-          My interests...
+          My current research lies in the intersection of <em>formal methods</em> and <em>machine learning</em>, specifically in the application of online and offline machine 
+          learning to SAT solving. I do this work under 
+          <Link href="https://wenxiwang.github.io" class="text-foreground" external underline>Prof. Wenxi Wang</Link>
+          in the 
+          <Link href="https://wenxiwang.github.io/group.html" class="text-foreground" external underline>HIPREL</Link>
+          group.
+          Given the highly optimised SAT solving ecosystem, I've employed (and enjoyed) a particular focus on efficient design and implementation of these learning techniques.
         </p>
         <p class="mt-0">
-          My current work...
+          Beyond my current work, I am drawn to problems and systems that sit at the hardware/software boundary, specifically <em>compiler engineering</em> and
+          <em>high-performance parallel computing</em>.
+        </p>
+        <p class="mt-0">
+          The thread that consistently ties these interests together is the <em>optimisation of complex, delicate systems for speed and safety</em>. In the pursuit of this 
+          goal in each of these fields, I believe there is particular value in exploring the synergies between them and how the insights in one can improve
+          another, even in both directions.
         </p>
       </div>
-
       <h2 class="mb-4 text-2xl font-medium">Publications</h2>
       <div class="flex flex-col gap-4">
         { (publications.length > 0) ? (
