@@ -7,4 +7,6 @@ description: [
     "Craft and review exam questions synthesizing multiple topics to test limits of students’ knowledge",
 ]
 startDate: "2024-08"
+endDate: "2025-05"
+type: "academic"
 ---

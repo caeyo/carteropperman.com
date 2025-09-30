@@ -42,6 +42,7 @@ const experience = defineCollection({
       endDate: z.coerce.date().optional(),
       tags: z.array(z.string()).optional(),
       link: z.string().url().optional(),
+      type: z.enum(['internship', 'academic', 'leadership']),
     }),
 })
 

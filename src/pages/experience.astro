@@ -14,9 +14,23 @@ const experiences = await getAllExperiences()
 
   <section>
     <div class="min-w-full">
-      <h2 class="mb-4 text-2xl font-medium">Experience</h2>
+      <h2 class="mb-4 text-2xl font-medium">Internship Experience</h2>
       <div class="flex flex-col gap-4">
-        {experiences.map((experience) => <ExperienceCard experience={experience} />)}
+        {experiences
+        .filter(experience => experience.data.type === "internship")
+        .map((experience) => <ExperienceCard experience={experience} />)}
+      </div>
+      <h2 class="mt-8 mb-4 text-2xl font-medium">Academic Experience</h2>
+      <div class="flex flex-col gap-4">
+        {experiences
+        .filter(experience => experience.data.type === "academic")
+        .map((experience) => <ExperienceCard experience={experience} />)}
+      </div>
+      <h2 class="mt-8 mb-4 text-2xl font-medium">Leadership Experience</h2>
+      <div class="flex flex-col gap-4">
+        {experiences
+        .filter(experience => experience.data.type === "leadership")
+        .map((experience) => <ExperienceCard experience={experience} />)}
       </div>
     </div>
   </section>

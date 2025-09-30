@@ -9,4 +9,5 @@ description: [
 ]
 startDate: "2024-05"
 endDate: "2024-08"
+type: "internship"
 ---
