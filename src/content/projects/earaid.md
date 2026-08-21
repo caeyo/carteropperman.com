@@ -6,9 +6,12 @@ description: [
     "1,000+ downloads",
 ]
 startDate: "2022-06"
+endDate: "2026-08"
 tags: [
     "C#",
     ".NET",
+    "FMOD",
     "MonoMod",
 ]
+link: https://github.com/caeyo/EarAid
 ---
