@@ -8,5 +8,6 @@ description: [
     "Prepare and present interactive lectures for 100+ students teaching essential concepts, UX/UI and game design",
 ]
 startDate: "2024-03"
+endDate: "2025-12"
 type: "academic"
 ---
